@@ -1,0 +1,40 @@
+@model AspNetCore.Data.Article
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+}
+
+<h2>Create</h2>
+
+<hr />
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div class="form-group">
+        <div class="input-control text">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <div class="input-control textarea">
+            <label asp-for="Text" class="control-label"></label>
+            <input asp-for="Text" class="form-control" />
+        </div>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-control submit">
+            <input type="submit" value="Create" class="button primary" />
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

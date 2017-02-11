@@ -1,0 +1,63 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>@ViewData["Title"] - ApsNetCore</title>
+
+    @await Html.PartialAsync("_MetroStylesPartial")
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/admin.min.css" asp-append-version="true" />
+    </environment>
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <div class="container" style="padding: .625rem 0;">
+        <div class="flex-grid">
+            <div class="row">
+                <div class="cell colspan3">
+                    <ul class="admin-menu v-menu block-shadow-impact">
+                        <li class="menu-title">Main menu</li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index"><span class="mif-home icon"></span> Home</a></li>
+                        <li class="divider"></li>
+
+                        <li class="menu-title">Sections</li>
+                        <li><a asp-area="" asp-controller="Admin" asp-action="Index"><span class="mif-file-text icon"></span> Articles</a></li>
+                        <li class="divider"></li>
+                        
+                        <li class="menu-title">Options</li>
+                        <li>
+                            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit" class="button link"><span class="mif-exit icon"></span> Log out</button>
+                            </form>
+                        </li>
+                    </ul>    
+                </div>
+
+                <div class="cell colspan9">@RenderBody()</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/metro/build/js/metro.js"></script>
+    <environment names="Development">
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/admin.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/admin.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

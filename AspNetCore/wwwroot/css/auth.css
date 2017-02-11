@@ -1,0 +1,10 @@
+﻿/* Write your CSS properties. */
+
+#auth-template {
+    background-color: #ffffff;
+    opacity: 0;
+    padding: .625rem;
+    margin: 0 auto;
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+}

@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AspNetCore.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="app-bar-menu place-right" data-flexorder="2">
+        <li><a asp-area="" asp-controller="Admin" asp-action="Index">Control panel</a></li>
+        <li>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                <button type="submit" class="button link">Log out</button>
+            </form>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="app-bar-menu place-right" data-flexorder="2">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+    </ul>
+}

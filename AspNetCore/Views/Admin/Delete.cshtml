@@ -1,0 +1,32 @@
+@model AspNetCore.Data.Article
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+}
+
+<h2>Delete</h2>
+
+<big>Are you sure you want to delete this?</big>
+
+<div class="row">
+    <dl class="horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Text)</dt>
+        <dd>@Html.DisplayFor(model => model.Text)</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <div class="form-group">
+        <div class="input-control submit">
+            <input type="submit" value="Delete" class="button danger" />
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

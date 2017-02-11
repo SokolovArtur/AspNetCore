@@ -1,0 +1,7 @@
+﻿<div *ngIf="article">
+    <h2>{{ article.title }}</h2>
+    
+    <div class="content block-shadow" *ngIf="article.text">
+        {{ article.text }}
+    </div>
+</div>

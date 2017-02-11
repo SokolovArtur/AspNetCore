@@ -1,0 +1,10 @@
+﻿/* Write your CSS properties. */
+
+.example.ad {
+    margin: .325rem;
+    height: 16.875rem;
+}
+.example.ad:before {
+    top: 14.875rem;
+    width: 14.875rem;
+}

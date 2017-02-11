@@ -1,0 +1,27 @@
+﻿/* Write your CSS properties. */
+
+footer {
+    clear: both;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: .625rem 1.825rem .625rem 2.5rem;
+    position: relative;
+    margin: .625rem 0;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+.tile-heading {
+    display: block;
+    position: relative;
+}
+.tile-heading {
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding: .625rem;
+    vertical-align: middle;
+}

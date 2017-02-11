@@ -1,0 +1,43 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>@ViewData["Title"] - ApsNetCore</title>
+
+    @await Html.PartialAsync("_MetroStylesPartial")
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true"/>
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/auth.min.css" asp-append-version="true"/>
+    </environment>
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body class="bg-darkTeal">
+    <div class="container" style="padding: .625rem 0;">
+        <div class="row flex-just-center">
+            <div class="cell colspan10 block-shadow" id="auth-template">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/metro/build/js/metro.js"></script>
+    <environment names="Development">
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/auth.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/auth.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
