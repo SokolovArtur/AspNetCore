@@ -2,23 +2,6 @@
 // More info at https://go.microsoft.com/fwlink/?LinkId=808241
 [
   {
-    "outputFileName": "wwwroot/css/admin.min.css",
-    "inputFiles": [
-      "wwwroot/css/admin.css"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/js/admin.min.js",
-    "inputFiles": [
-      "wwwroot/js/admin.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    },
-    "sourceMap": false
-  },
-  {
     "outputFileName": "wwwroot/css/auth.min.css",
     "inputFiles": [
       "wwwroot/css/auth.css"
@@ -28,23 +11,6 @@
     "outputFileName": "wwwroot/js/auth.min.js",
     "inputFiles": [
       "wwwroot/js/auth.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    },
-    "sourceMap": false
-  },
-  {
-    "outputFileName": "wwwroot/css/home.min.css",
-    "inputFiles": [
-      "wwwroot/css/home.css"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/js/home.min.js",
-    "inputFiles": [
-      "wwwroot/js/home.js"
     ],
     "minify": {
       "enabled": true,

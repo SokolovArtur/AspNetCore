@@ -1,0 +1,30 @@
+﻿<h2>Articles</h2>
+
+<div class="toolbar">
+    <a [routerLink]="['/admin/article/create']">Create New</a>
+</div>
+
+<table class="table bordered hovered dataTable" data-role="datatable" *ngIf="articles">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let article of articles">
+            <td>
+                {{ article.title }}
+            </td>
+            <td>
+                {{ article.text }}
+            </td>
+            <td>
+                <a [routerLink]="['/admin/article/edit', article.id]">Edit</a> |
+                <a [routerLink]="['/admin/article/details', article.id]">Details</a> |
+                <a [routerLink]="['/admin/article/delete', article.id]">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -48,7 +48,6 @@ namespace AspNetCore.Controllers.Api
 
         // PUT: api/Articles/5
         [HttpPut("{id}")]
-        [Authorize]
         public async Task<IActionResult> PutArticle([FromRoute] int id, [FromBody] Article article)
         {
             if (!ModelState.IsValid)
@@ -84,7 +83,6 @@ namespace AspNetCore.Controllers.Api
 
         // POST: api/Articles
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> PostArticle([FromBody] Article article)
         {
             if (!ModelState.IsValid)
@@ -114,7 +112,6 @@ namespace AspNetCore.Controllers.Api
 
         // DELETE: api/Articles/5
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteArticle([FromRoute] int id)
         {
             if (!ModelState.IsValid)

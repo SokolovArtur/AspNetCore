@@ -1,0 +1,13 @@
+<ul class="admin-menu v-menu block-shadow-impact">
+    <li class="menu-title">Main menu</li>
+    <li>
+        <a [routerLink]="['/']"><span class="mif-home icon"></span> Home</a>
+    </li>
+    <li class="divider"></li>
+
+    <li class="menu-title">Sections</li>
+    <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/admin/article']"><span class="mif-file-text icon"></span> Articles</a>
+    </li>
+    <li class="divider"></li>
+</ul>

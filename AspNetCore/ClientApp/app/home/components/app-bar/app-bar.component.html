@@ -1,0 +1,25 @@
+<header class="app-bar" data-role="appbar">
+    <div class="container">
+        <a class="app-bar-element branding">ApsNetCore</a>
+
+        <span class="app-bar-divider"></span>
+        
+        <ul class="app-bar-menu" data-flexorder="1">
+            <li>
+                <a [routerLink]="['/']">Home</a>
+            </li>
+            <li>
+                <a [routerLink]="['/about']">About</a>
+            </li>
+            <li>
+                <a [routerLink]="['/contact']">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="app-bar-menu place-right" data-flexorder="2">
+            <li>
+                <a [routerLink]="['/admin']">Control panel</a>
+            </li>
+        </ul>
+    </div>
+</header>

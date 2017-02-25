@@ -1,0 +1,24 @@
+﻿<h2>Delete</h2>
+
+<div class="alert alert-danger" *ngIf="error">
+    <strong>Error!</strong>
+    <span>Data were not removed.</span>
+</div>
+
+<div *ngIf="article">
+    <h3>Are you sure you want to delete this?</h3>
+
+    <div class="row">
+        <dl-item></dl-item>
+    </div>
+
+    <div class="form-group">
+        <div class="input-control submit">
+            <input type="submit" value="Delete" class="button danger" (click)="onDelete()" />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a [routerLink]="['/admin/article']">Back to List</a>
+</div>

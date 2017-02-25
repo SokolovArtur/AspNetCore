@@ -1,0 +1,16 @@
+﻿<h2>Details</h2>
+
+<div *ngIf="article">
+    <div class="toolbar">
+        <a [routerLink]="['/admin/article/edit', article.id]">Edit</a> |
+        <a [routerLink]="['/admin/article/delete', article.id]">Delete</a>
+    </div>
+
+    <div class="row">
+        <dl-item></dl-item>
+    </div>
+</div>
+
+<div>
+    <a [routerLink]="['/admin/article']">Back to List</a>
+</div>

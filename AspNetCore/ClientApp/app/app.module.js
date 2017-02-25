@@ -6,14 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var angular2_universal_1 = require("angular2-universal");
-var app_component_1 = require("./components/app/app.component");
-var navmenu_component_1 = require("./components/navmenu/navmenu.component");
-var home_component_1 = require("./components/home/home.component");
-var about_component_1 = require("./components/about/about.component");
-var contact_component_1 = require("./components/contact/contact.component");
-var article_component_1 = require("./components/article/article.component");
+var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
+var Site = require("./site/site");
+var Home = require("./home/home");
+var Article = require("./article/article");
+var Static = require("./static/static");
+var Admin = require("./admin/admin");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,24 +21,53 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        bootstrap: [app_component_1.AppComponent],
+        bootstrap: [Site.AppComponent],
         declarations: [
-            app_component_1.AppComponent,
-            navmenu_component_1.NavMenuComponent,
-            about_component_1.AboutComponent,
-            contact_component_1.ContactComponent,
-            article_component_1.ArticleComponent,
-            home_component_1.HomeComponent
+            Site.AppComponent,
+            Site.ErrorComponent,
+            Home.AppComponent,
+            Home.AppBarComponent,
+            Home.FooterStickyComponent,
+            Article.TilesComponent,
+            Article.PublicArticleComponent,
+            Static.AboutComponent,
+            Static.ContactComponent,
+            Admin.AppComponent,
+            Admin.LeftMenuComponent,
+            Article.ArticlesTableComponent,
+            Article.SaveFormComponent,
+            Article.DlItemComponent,
+            Article.DetailsItemComponent,
+            Article.DeleteComponent
         ],
         imports: [
             angular2_universal_1.UniversalModule,
+            forms_1.FormsModule,
             router_1.RouterModule.forRoot([
-                { path: '', redirectTo: 'home', pathMatch: 'full' },
-                { path: 'home', component: home_component_1.HomeComponent },
-                { path: 'about', component: about_component_1.AboutComponent },
-                { path: 'contact', component: contact_component_1.ContactComponent },
-                { path: 'article/:id', component: article_component_1.ArticleComponent },
-                { path: '**', redirectTo: 'home' }
+                {
+                    path: '',
+                    component: Home.AppComponent,
+                    children: [
+                        { path: '', component: Article.TilesComponent },
+                        { path: 'article/:id', component: Article.PublicArticleComponent },
+                        { path: 'about', component: Static.AboutComponent },
+                        { path: 'contact', component: Static.ContactComponent }
+                    ]
+                },
+                {
+                    path: 'admin',
+                    component: Admin.AppComponent,
+                    children: [
+                        { path: '', redirectTo: 'article', pathMatch: 'full' },
+                        { path: 'article', component: Article.ArticlesTableComponent },
+                        { path: 'article/create', component: Article.SaveFormComponent },
+                        { path: 'article/edit/:id', component: Article.SaveFormComponent },
+                        { path: 'article/details/:id', component: Article.DetailsItemComponent },
+                        { path: 'article/delete/:id', component: Article.DeleteComponent }
+                    ]
+                },
+                { path: 'error', component: Site.ErrorComponent },
+                { path: '**', component: Site.ErrorComponent },
             ])
         ]
     })

@@ -1,0 +1,42 @@
+﻿<h2 *ngIf="!article">Article</h2>
+<h2 *ngIf="article">{{ (article.id > 0) ? 'Edit' : 'Create' }}</h2>
+
+<hr />
+
+<div *ngIf="article">
+    <form (ngSubmit)="onSubmit()">
+        <div class="text-danger"></div>
+
+        <input type="hidden" name="id" [(ngModel)]="article.id" />
+
+        <div class="form-group">
+            <div class="input-control text">
+                <label for="title-input" class="control-label">Title</label>
+                <input type="text" name="title" id="title-input" class="form-control" [(ngModel)]="article.title" />
+            </div>
+            <span class="text-danger" *ngIf="error">
+                <span *ngFor="let Title of error.Title">{{ Title }}</span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <div class="input-control textarea">
+                <label for="text-input" class="control-label">Text</label>
+                <textarea name="text" id="text-input" class="form-control" [(ngModel)]="article.text"></textarea>
+            </div>
+            <span class="text-danger" *ngIf="error">
+                <span *ngFor="let Text of error.Text">{{ Text }}</span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <div class="input-control submit">
+                <input type="submit" [value]="(article.id > 0) ? 'Save' : 'Create'" value="" class="button primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a [routerLink]="['/admin/article']">Back to List</a>
+</div>
